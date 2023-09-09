@@ -3,12 +3,12 @@ const GoodsItem = (props) => {
         mainId: id,
         displayName: name,
         displayDescription: description,
-        finalPrice: price,
+        price,
         displayAssets,
         addToBasket = Function.prototype
     } = props
 
-    console.log (props)
+    const sellPrice = price.finalPrice
 
     const background = displayAssets[0].background
 
@@ -24,9 +24,9 @@ const GoodsItem = (props) => {
             <button className="btn blue darken-1 white-text" onClick={() => addToBasket ({
                 id,
                 name,
-                price
+                sellPrice
             })}>Купить</button>
-            <span className="right">{price}</span>
+            <span className="right">{sellPrice} руб</span>
         </div>
     </div>
 }
