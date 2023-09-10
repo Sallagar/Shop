@@ -9,8 +9,8 @@ const Shop = () => {
     const [goods, setGoods] = useState([])
     const [loading, setLoading] = useState(true)
     const [order, setOrder] = useState([])
-    const [isBasketShow, setBasketShow] =useState(false)
-
+    const [isBasketShow, setBasketShow] = useState(false)
+    
     const addToBasket = (item) => {
         const itemIndex = order.findIndex(
             orderItem => orderItem.id === item.id)
@@ -44,6 +44,36 @@ const Shop = () => {
         setBasketShow(!isBasketShow)
     }
 
+    const incQuantity = (itemId) => {
+        const newOrder = order.map(el => {
+            if (el.id === itemId) {
+                const newQuantity = el.quantity + 1
+                return {
+                    ...el,
+                    quantity: newQuantity
+                }
+            } else {
+                return el
+            }
+        })
+        setOrder(newOrder)
+    }
+
+    const decQuantity = (itemId) => {
+        const newOrder = order.map(el => {
+            if (el.id === itemId) {
+                const newQuantity = el.quantity - 1
+                return {
+                    ...el,
+                    quantity: newQuantity >= 0 ? newQuantity : 0
+                }
+            } else {
+                return el
+            }
+        })
+        setOrder(newOrder)
+    }
+
     useEffect(() => {
          fetch(API_URL, {
         headers: {
@@ -65,7 +95,9 @@ const Shop = () => {
             isBasketShow && <BasketList 
             order={order} 
             handleBasketShow={handleBasketShow} 
-            removeFromBasket={removeFromBasket}/>
+            removeFromBasket={removeFromBasket}
+            incQuantity={incQuantity}
+            decQuantity={decQuantity}/>
         }
     </main>
 }

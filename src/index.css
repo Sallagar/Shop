@@ -44,9 +44,6 @@ nav {
   }
 }
 
-.cart-quantity{
-
-}
 
 .basket-list{
   position: fixed;
@@ -77,4 +74,10 @@ nav {
     top: 50%;
     opacity: 1;
   }
+}
+
+.basket-quatity{
+  cursor: pointer;
+  vertical-align: middle;
+  color: #1E88E5;
 }
