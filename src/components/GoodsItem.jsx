@@ -26,7 +26,7 @@ const GoodsItem = (props) => {
                 name,
                 sellPrice
             })}>Купить</button>
-            <span className="right">{sellPrice} руб</span>
+            <span className="right">{sellPrice} руб.</span>
         </div>
     </div>
 }
