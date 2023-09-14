@@ -25,7 +25,14 @@ const BasketList = (props) => {
                 decQuantity={decQuantity}/>  
             )) : <li className="collection-item">Корзина пуста</li>
         }
-        <li className="collection-item">Общая стоимость: {totalPrice} руб.</li>
+        <li className="collection-item active blue darken-1">
+            Общая стоимость: {totalPrice} руб.
+        </li>
+        <li className="collection-item">
+            <button className="btn-small blue darken-1 left">
+                Оформить
+            </button>
+        </li>
         
     </ul>
 }
