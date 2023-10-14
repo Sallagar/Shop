@@ -1,5 +1,4 @@
 import { useEffect, useContext } from "react"
-import { API_KEY, API_URL } from "../config"
 import { ShopContext } from "../context"
 import { GoodsList } from "./GoodsList"
 import { Cart } from "./Cart"
@@ -17,9 +16,9 @@ const Shop = () => {
     } = useContext(ShopContext)
 
     useEffect(() => {
-         fetch(API_URL, {
+         fetch('https://fortniteapi.io/v2/shop?lang=ru', {
         headers: {
-            Authorization: API_KEY,
+            Authorization: '605b9199-5e28f980-31dfb32c-62bf66db',
         },
     }).then(response => response.json())
     .then(data => {
